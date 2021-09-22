@@ -9,8 +9,12 @@ const Navbar = () => {
           Imenik
         </Link>
         <div>
-          <Link to="/contacts/add" className="btn btn-light ml-auto">
-            Kreiraj kontakt
+          <Link to="/contacts/add" className="circle btn btn-light ml-auto">
+          <span
+                    className="material-icons"
+                >
+                    add
+                </span>
           </Link>
         </div>
       </div>

@@ -8,7 +8,6 @@ const AddContact = () => {
   let history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   const createContact = (e) => {
@@ -16,8 +15,7 @@ const AddContact = () => {
     const new_contact = {
       id: shortid.generate(),
       name: name,
-      phone: phone,
-      email: email,
+      phone: phone
     };
     dispatch(addContact(new_contact));
     history.push("/");
@@ -46,16 +44,7 @@ const AddContact = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Ukucaj E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <button className="btn btn-primary" type="submit">
+         <button className="btn btn-primary" type="submit">
             Kreiraj kontakt
           </button>
         </form>

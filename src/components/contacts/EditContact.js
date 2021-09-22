@@ -9,16 +9,14 @@ const EditContact = () => {
   let { id } = useParams();
   let history = useHistory();
   const dispatch = useDispatch();
-  const contact = useSelector((state) => state.contact.contact);
+  const contact = useSelector((state) => state.contact);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   useEffect(() => {
     if (contact != null) {
       setName(contact.name);
       setPhone(contact.phone);
-      setEmail(contact.email);
     }
     dispatch(getContact(id));
   }, [contact]);
@@ -28,8 +26,7 @@ const EditContact = () => {
 
     const update_contact = Object.assign(contact, {
       name: name,
-      phone: phone,
-      email: email,
+      phone: phone
     });
 
     dispatch(updateContact(update_contact));
@@ -44,7 +41,7 @@ const EditContact = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter Your Name"
+              placeholder="Ukucaj Ime"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -53,18 +50,9 @@ const EditContact = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter Your Phone Number"
+              placeholder="Ukucaj broj"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter Your E-mail Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <button className="btn btn-warning" type="submit">
